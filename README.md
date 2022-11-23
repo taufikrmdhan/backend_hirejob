@@ -1,1 +1,3 @@
-# backend_hirejob
+# Hirejob
+
+Hirejobs adalah sebuah aplikasi untuk mencari kerja yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan Next.js. Pada aplikasi ini, user bisa login sebagai perekrut dan pencari kerja. Dalam menu pencari kerja nanti akan menampilkan list user pencari kerja beserta beberapa informasi terkait data pribadinya, selain itu user juga bisa melakukan CRUD pada halaman profile nya sendiri. Dalam menu perekrut nanti akan menampilkan list perekrut beserta beberapa data perusahaannya, serta perekrut juga dapat melakukan CRUD pada halaman profile perekrutnya.

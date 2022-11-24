@@ -3,6 +3,11 @@
 ## Description
 Hirejobs adalah sebuah aplikasi untuk mencari kerja yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan Next.js. Pada aplikasi ini, user bisa login sebagai perekrut dan pencari kerja. Dalam menu pencari kerja nanti akan menampilkan list user pencari kerja beserta beberapa informasi terkait data pribadinya, selain itu user juga bisa melakukan CRUD pada halaman profile nya sendiri. Dalam menu perekrut nanti akan menampilkan list perekrut beserta beberapa data perusahaannya, serta perekrut juga dapat melakukan CRUD pada halaman profile perekrutnya.
 
+## Run Project
+Install package : npm i
+
+Run Project : npm start
+
 ## Project Structure
 
 ```
@@ -21,15 +26,10 @@ Hirejobs adalah sebuah aplikasi untuk mencari kerja yang dikembangkan menggunaka
 ```
 
 ## Related Project
-RESTful API for this web application, clone this for development Foodtemplate.\
+Frontend web Application.\
 [frontend-hirejobApp](https://github.com/taufikrmdhan/hirejob_nextjs)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
-## Run Project
-Install package : npm i
-
-Run Project : npm start

@@ -1,7 +1,7 @@
 <h1 align="center">Hire Job</h1>
 
 ## Description
-Hirejobs adalah sebuah aplikasi untuk mencari kerja yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan Next.js. Pada aplikasi ini, user bisa login sebagai perekrut dan pencari kerja. Dalam menu pencari kerja nanti akan menampilkan list user pencari kerja beserta beberapa informasi terkait data pribadinya, selain itu user juga bisa melakukan CRUD pada halaman profile nya sendiri. Dalam menu perekrut nanti akan menampilkan list perekrut beserta beberapa data perusahaannya, serta perekrut juga dapat melakukan CRUD pada halaman profile perekrutnya.
+Hirejobs is an application to find work developed using several technologies including PostgreSQL, Express.js, and Next.js. In this application, users can log in as recruiters and job seekers. The job seeker menu will later display a list of job seeker users along with some information related to their personal data, besides that users can also do CRUD on their own profile page. The recruiter menu will display a list of recruiters along with some of their company data, and recruiters can also do CRUD on their recruiter's profile page.
 
 ## Run Project
 Install package : npm i

@@ -29,7 +29,7 @@ Run Project : npm start
 Frontend web Application.\
 [frontend-hirejobApp](https://github.com/taufikrmdhan/hirejob_nextjs)
 <br/>
-[backend-hirejobApp](https://hirejob-nine.vercel.app/)
+[deploy-hirejobApp](https://hirejob-nine.vercel.app/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

@@ -28,6 +28,8 @@ Run Project : npm start
 ## Related Project
 Frontend web Application.\
 [frontend-hirejobApp](https://github.com/taufikrmdhan/hirejob_nextjs)
+<br/>
+[backend-hirejobApp](https://hirejob-nine.vercel.app/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

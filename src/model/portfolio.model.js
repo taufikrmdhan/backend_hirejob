@@ -1,19 +1,32 @@
 const db = require("../config/db");
 
 const portofolioModel = {
-  insertPortofolio: (title, image, link, id_user) =>
-    new Promise((resolve, reject) => {
-      db.query(
-        `INSERT INTO portofolio (title, image, link, id_user) VALUES ('${title}', '${image}', '${link}', ${id_user})`,
-        (err, result) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(result);
-          }
+  // insertPortofolio: (title, image, link, id_user) =>
+  //   new Promise((resolve, reject) => {
+  //     db.query(
+  //       `INSERT INTO portofolio (title, image, link, id_user) VALUES ('${title}', '${image}', '${link}', ${id_user})`,
+  //       (err, result) => {
+  //         if (err) {
+  //           reject(err);
+  //         } else {
+  //           resolve(result);
+  //         }
+  //       }
+  //     );
+  //   }),
+  insertPortofolio: (title, image, link) =>
+  new Promise((resolve, reject) => {
+    db.query(
+      `INSERT INTO portofolio (title, image, link) VALUES ('${title}', '${image}', '${link}')`,
+      (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
         }
-      );
-    }),
+      }
+    );
+  }),
   // get airline list
   getAllPortofolio: (id_user) => {
     return new Promise((resolve, reject) => {

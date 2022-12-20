@@ -2,11 +2,26 @@ const portofolioModel = require("../model/portfolio.model");
 const { success, failed } = require("../helper/response");
 
 const portofolioController = {
+  // insertPortofolio: (req, res) => {
+  //   const { title, link, id_user } = req.body;
+  //   const image = req.file.filename;
+  //   portofolioModel
+  //     .insertPortofolio(title, image, link, id_user)
+  //     .then((result) => {
+  //       res.json({
+  //         message: "success insert data",
+  //         data: result,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       res.json(err);
+  //     });
+  // },
   insertPortofolio: (req, res) => {
-    const { title, link, id_user } = req.body;
+    const { title, link } = req.body;
     const image = req.file.filename;
     portofolioModel
-      .insertPortofolio(title, image, link, id_user)
+      .insertPortofolio(title, image, link)
       .then((result) => {
         res.json({
           message: "success insert data",

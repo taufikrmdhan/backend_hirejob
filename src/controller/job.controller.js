@@ -32,17 +32,19 @@ const jobController = {
         image_public_id: image.public_id,
         image_secure_url: image.secure_url,
       };
-      console.log(data);
+      console.log('ini controller',data);
       jobModel
         .insertJob(data)
         .then((result) => {
-          res.json({
-            message: "success insert data",
-            data: result,
-          });
+          // res.json({
+          //   message: "success insert data",
+          //   data: result,
+          // });
+          success(res, result, "success", "Insert Job Success");
         })
         .catch((err) => {
-          res.json(err);
+          // res.json(err);
+          failed(res, err.message, "failed", "Failed insert job 1");
         });
       // const result = await recipeModel.insertRecipe(data);
       // success(res, result, 'success', 'Success insert recipe');

@@ -3,10 +3,11 @@ const db = require("../config/db");
 
 const jobModel = {
   // all flight list
-  insertJob: (job_title, company, date_in, date_out, description, image) =>
-    new Promise((resolve, reject) => {
+  insertJob: (data) => {
+    // console.log('Ini model :',data);
+    return new Promise((resolve, reject) => {
       db.query(
-        `INSERT INTO job_experience (job_title, company, date_in, date_out, description, image, image_url, image_public_id, image_secure_url) VALUES ('${job_title}', '${company}', '${date_in}', '${date_out}', '${description}', '${image}', '${image_url}', '${image_public_id}', '${image_secure_url}')`,
+        `INSERT INTO job_experience (job_title, company, date_in, date_out, description, image, image_url, image_public_id, image_secure_url) VALUES ('${data.job_title}', '${data.company}', '${data.date_in}', '${data.date_out}', '${data.description}', '${data.image}', '${data.image_url}', '${data.image_public_id}', '${data.image_secure_url}')`,
         (err, result) => {
           if (err) {
             reject(err);
@@ -15,7 +16,8 @@ const jobModel = {
           }
         }
       );
-    }),
+    });
+  },
   // get airline list
   getAllJob: () => {
     return new Promise((resolve, reject) => {

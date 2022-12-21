@@ -16,22 +16,55 @@ const portofolioController = {
   //     })
   //     .catch((err) => {
   //       res.json(err);
+  // //     });
+  // // },
+  // insertPortofolio: (req, res) => {
+  //   const { title, link } = req.body;
+  //   const image = req.file.filename;
+  //   portofolioModel
+  //     .insertPortofolio(title, image, link)
+  //     .then((result) => {
+  //       res.json({
+  //         message: "success insert data",
+  //         data: result,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       res.json(err);
   //     });
   // },
-  insertPortofolio: (req, res) => {
-    const { title, link } = req.body;
-    const image = req.file.filename;
-    portofolioModel
-      .insertPortofolio(title, image, link)
-      .then((result) => {
-        res.json({
-          message: "success insert data",
-          data: result,
+  insertPortofolio: async (req, res) => {
+    try {
+      const { title, link } = req.body;
+      const image = await cloudinary.uploader.upload(req.file.path);
+      console.log(image);
+      const data = {
+        title,
+        link,
+        image,
+        image_url: image.url,
+        image_public_id: image.public_id,
+        image_secure_url: image.secure_url,
+      };
+      console.log('ini controller',data);
+      portofolioModel
+        .insertPortofolio(data)
+        .then((result) => {
+          // res.json({
+          //   message: "success insert data",
+          //   data: result,
+          // });
+          success(res, result, "success", "Insert portofolio Success");
+        })
+        .catch((err) => {
+          // res.json(err);
+          failed(res, err.message, "failed", "Failed insert portofolio 1");
         });
-      })
-      .catch((err) => {
-        res.json(err);
-      });
+      // const result = await recipeModel.insertRecipe(data);
+      // success(res, result, 'success', 'Success insert recipe');
+    } catch (err) {
+      failed(res, err.message, "failed", "Failed insert portoflio");
+    }
   },
   list: (req, res) => {
     const id_user = req.params.id_user;

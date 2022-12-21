@@ -1,20 +1,54 @@
 const jobModel = require("../model/job.model");
 const { success, failed } = require("../helper/response");
+const cloudinary = require("../helper/cloudinary");
 
 const jobController = {
   // get all
-  insertJob: (req, res) => {
-    const { job_title, company, date_in, date_out, description } = req.body;
-    const image = req.file.filename;
+  // insertJob: (req, res) => {
+  //   const { job_title, company, date_in, date_out, description } = req.body;
 
-    jobModel
-      .insertJob(job_title, company, date_in, date_out, description, image)
-      .then((result) => {
-        success(res, result.rows, "success", "Insert Job Success");
-      })
-      .catch((err) => {
-        failed(res, err.message, "failed", "Failed to insert job");
-      });
+  //   jobModel
+  //     .insertJob(job_title, company, date_in, date_out, description, image)
+  //     .then((result) => {
+  //       success(res, result.rows, "success", "Insert Job Success");
+  //     })
+  //     .catch((err) => {
+  //       failed(res, err.message, "failed", "Failed to insert job");
+  //     });
+  // },
+  insertJob: async (req, res) => {
+    try {
+      const { job_title, company, date_in, date_out, description } = req.body;
+      const image = await cloudinary.uploader.upload(req.file.path);
+      console.log(image);
+      const data = {
+        job_title,
+        company,
+        date_in,
+        date_out,
+        description,
+        image,
+        image_url: image.url,
+        image_public_id: image.public_id,
+        image_secure_url: image.secure_url,
+      };
+      console.log(data);
+      jobModel
+        .insertJob(data)
+        .then((result) => {
+          res.json({
+            message: "success insert data",
+            data: result,
+          });
+        })
+        .catch((err) => {
+          res.json(err);
+        });
+      // const result = await recipeModel.insertRecipe(data);
+      // success(res, result, 'success', 'Success insert recipe');
+    } catch (err) {
+      failed(res, err.message, "failed", "Failed insert job");
+    }
   },
   list: (req, res) => {
 	jobModel

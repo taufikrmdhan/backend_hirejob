@@ -6,7 +6,7 @@ const jobModel = {
   insertJob: (job_title, company, date_in, date_out, description, image) =>
     new Promise((resolve, reject) => {
       db.query(
-        `INSERT INTO job_experience (job_title, company, date_in, date_out, description, image) VALUES ('${job_title}', '${company}', '${date_in}', '${date_out}', '${description}', '${image}')`,
+        `INSERT INTO job_experience (job_title, company, date_in, date_out, description, image, image_url, image_public_id, image_secure_url) VALUES ('${job_title}', '${company}', '${date_in}', '${date_out}', '${description}', '${image}', '${image_url}', '${image_public_id}', '${image_secure_url}')`,
         (err, result) => {
           if (err) {
             reject(err);
